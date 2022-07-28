@@ -38,6 +38,9 @@ const InitialPage = () => {
       <h1>Este template contem as seguintes dependencias</h1>
       <span>* axios versão {'-->'}  ^0.27.2</span>
       <span>* react-router-dom versão {'-->'}  ^6.3.0</span>
+      <h2>Este template contem as seguintes configurações</h2>
+      <span>* Por padrão a fonte deste template é Poppins</span>
+      <span>* O reset de css já está configurado</span>
     </div>
 
   )
