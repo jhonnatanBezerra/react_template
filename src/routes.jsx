@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext, AuthProvider } from "./context/Auth";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { InputWithFloatingLabel } from "./components/Inputs/FloatingLabel";
 
 export const AppRoutes = () => {
 
@@ -41,6 +42,9 @@ const InitialPage = () => {
       <h2>Este template contem as seguintes configurações</h2>
       <span>* Por padrão a fonte deste template é Poppins</span>
       <span>* O reset de css já está configurado</span>
+      <h2 style={{ margin: '25px 0' }}>Este template contem os seguintes componentes</h2>
+
+      <InputWithFloatingLabel />
     </div>
 
   )
