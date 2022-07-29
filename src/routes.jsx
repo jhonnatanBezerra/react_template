@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { AuthContext, AuthProvider } from "./context/Auth";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { InputWithFloatingLabel } from "./components/Inputs/FloatingLabel";
+import { Carousel } from "./components/Carousel";
+import { Button } from "./components/Button";
 
 export const AppRoutes = () => {
 
@@ -34,17 +36,24 @@ export const AppRoutes = () => {
 
 
 const InitialPage = () => {
+
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', padding: '2rem' }}>
       <h1>Este template contem as seguintes dependencias</h1>
       <span>* axios versão {'-->'}  ^0.27.2</span>
       <span>* react-router-dom versão {'-->'}  ^6.3.0</span>
+      <span>* styled-components versão {'-->'}  ^5.3.5</span>
+      <span>* react-icons versão {'-->'}  ^4.4.0</span>
       <h2>Este template contem as seguintes configurações</h2>
       <span>* Por padrão a fonte deste template é Poppins</span>
       <span>* O reset de css já está configurado</span>
       <h2 style={{ margin: '25px 0' }}>Este template contem os seguintes componentes</h2>
 
-      <InputWithFloatingLabel />
+      <InputWithFloatingLabel label='Usuário' />
+
+
+      <Button message={'Entrar'} />
     </div>
 
   )

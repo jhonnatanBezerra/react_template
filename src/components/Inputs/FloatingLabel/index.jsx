@@ -1,29 +1,46 @@
 import React from 'react';
-import './styles.css'
+import { Input, InputContainer, Label } from './styles';
+import { BiUser } from 'react-icons/bi';
 
-export const InputWithFloatingLabel = () => {
+export const InputWithFloatingLabel = (props) => {
 
-  const [isFocused, setIsFocused] = React.useState(false);
 
-  const handleFocus = () => {
-    setIsFocused(true);
-  }
+  const inputRef = React.useRef(null);
+  const [isFixed, setIsFixed] = React.useState(false);
 
   const handleBlur = () => {
-    setIsFocused(false);
+    if (inputRef.current.value) {
+      setIsFixed(true);
+    } else {
+      setIsFixed(false);
+    }
+  }
+
+  const handleFocusInput = () => {
+    inputRef.current.focus();
   }
 
   return (
-    <div className={`input-container ${isFocused && 'filled'}`} >
-      <input
-        onFocus={handleFocus}
-        onblur={handleBlur}
-        className='text-input'
-        autoComplete='false'
-        placeholder='Digite seu nome'
-        type="text" />
-      <label className='label' >Nome</label>
-    </div>
+    <>
+
+
+      <InputContainer>
+
+        <BiUser size={22} color={'#ccc'} style={{ position: 'absolute', top: ' 50%', transform: 'translate(50%,-50%)' }} />
+
+        <Input
+          ref={inputRef}
+          onBlur={handleBlur}
+          placeholder={props.label}
+          {...props} />
+
+
+        <Label onClick={handleFocusInput} fixed={isFixed}>{props.label}</Label>
+
+      </InputContainer>
+
+    </>
+
 
   );
 }
