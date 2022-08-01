@@ -1,9 +1,0 @@
-.label input:checked ~ .checkbox{
-  transform: rotate(45deg);
-  width: 15px;
-  margin-left: 16px;
-  border-color: #2280FF;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-radius: 0;
-}
