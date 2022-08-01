@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { InputWithFloatingLabel } from "./components/Inputs/FloatingLabel";
 import { Carousel } from "./components/Carousel";
 import { Button } from "./components/Button";
+import { CheckBox } from "./components/CheckBox";
 
 export const AppRoutes = () => {
 
@@ -38,6 +39,22 @@ export const AppRoutes = () => {
 const InitialPage = () => {
 
 
+  const [user, setUser] = React.useState({
+    name: '',
+    password: ''
+  });
+
+  const handleChangeText = (e) => {
+
+
+
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    })
+  }
+
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', padding: '2rem' }}>
       <h1>Este template contem as seguintes dependencias</h1>
@@ -51,10 +68,19 @@ const InitialPage = () => {
       <h2 style={{ margin: '25px 0' }}>Este template contem os seguintes componentes</h2>
 
       <InputWithFloatingLabel label='Usuário' />
-
-
+      <Spacing />
       <Button message={'Entrar'} />
+      <Spacing />
+      <CheckBox label="Ativo" />
+
+
     </div>
 
+  )
+}
+
+const Spacing = () => {
+  return (
+    <div style={{ margin: '20px 0' }}></div>
   )
 }
