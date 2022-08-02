@@ -23,7 +23,7 @@ export const useCurrentWidth = () => {
     }
   }, [])
 
-  return width;
+  return { width };
 }
 
 /**
