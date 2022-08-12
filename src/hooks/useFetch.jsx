@@ -8,10 +8,26 @@ export const useFetch = (url) => {
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
-    axios.get(url)
+
+    const calcelToken = axios.CancelToken.source();
+
+    axios.get(url, { cancelToken: calcelToken.token })
+
       .then(response => { setData(response.data) })
-      .catch(error => { setError(error) })
-      .finally(() => { setIsFetching(false) })
+
+      .catch(error => {
+        if (axios.isCancel(error)) return;
+        setError(error);
+      })
+
+      .finally(() => { setIsFetching(false) });
+
+    return () => {
+
+      calcelToken.cancel();
+
+    };
+
   }, [])
 
   return { data, isFetching, error };
